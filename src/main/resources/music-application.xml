@@ -12,6 +12,6 @@
 		 
 <!-- datasource beans defined here -->
 <!-- transactionmanager beans defined here -->
-<!-- business layer beans go in here rather than web.xml -->
+<!-- business layer beans go in here rather than servlet.xml -->
 
 </beans>
