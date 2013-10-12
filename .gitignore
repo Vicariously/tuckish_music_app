@@ -10,6 +10,7 @@
 #eclipse environment stuff
 .settings/
 .project
+.classpath
 
 #maven-built directories
 target/
