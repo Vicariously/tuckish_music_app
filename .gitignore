@@ -7,5 +7,9 @@
 *.o
 *.so
 
+#eclipse environment stuff
+.settings/
+.project
+
 #maven-built directories
 target/
