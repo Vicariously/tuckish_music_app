@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>music-app</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<name>Music Application</name>
-	
-	</project>
+
+</project>
