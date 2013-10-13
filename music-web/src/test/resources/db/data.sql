@@ -1,0 +1,1 @@
+INSERT INTO MUSIC (SONG) VALUES ('Simple Song Title');
