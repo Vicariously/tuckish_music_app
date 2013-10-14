@@ -1,4 +1,4 @@
-package musiclibrary.impl.web.controller;
+package src.test.java.musiclibrary.impl.web.controller;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;

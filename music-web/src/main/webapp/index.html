@@ -1,0 +1,152 @@
+ <!DOCTYPE html> 
+
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <link type="text/css" href="/public/assets/jPlayerSkins/pink.flag/jplayer.pink.flag.css" rel="stylesheet" /> -->
+<link type="text/css" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+<script type="text/javascript" src="public/assets/jQuery/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+//instance jplayer here
+//use ajax to get a new mp3 and set the new mp3 in this jplayers instance
+
+$(document).ready(function(){
+	var ffaction;
+	var rwaction;
+	var rewinding = false;
+	var fastforwarding = false;
+	var paused = false;
+	
+	$("#jquery_jplayer_1").jPlayer({
+		
+		ready: function(){
+			$(this).jPlayer("setMedia",{mp3: "stream/play/jolene.mp3"});//jPlayer.setMedia
+		},
+		swfPath: "public/assets/jPlayer/jQuery.jPlayer.2.4.0",
+		supplied: "mp3"
+	});
+	
+ $(document).delegate('*', 'keydown',  function (e){
+	 //Rewind
+	if(e.keyCode == 37 && (!rewinding)){ //left arrow key pressed
+		console.info("left key pressed");
+		rewinding = true;
+		$("#jquery_jplayer_1").jPlayer("pause");
+		rewind();
+		rwaction = window.setInterval(function(){rewind()}, 500);
+	}
+	else if(e.keyCode == 39 && (!fastforwarding)){//right arrow key pressed
+		console.info("right key pressed");
+		fastforwarding = true;
+		$("#jquery_jplayer_1").jPlayer("pause");
+		fastforward();
+		ffaction = window.setInterval(function(){fastforward()}, 500);
+	}
+ });
+
+ $(document).delegate('*', 'keyup',  function (e){
+	 //stop Rewind
+	if(e.keyCode == 37){ //left arrow key up
+		console.info("left key up");
+		rewinding = false;
+		window.clearInterval(rwaction);
+		$("#jquery_jplayer_1").jPlayer("pause");
+		
+	}
+	else if(e.keyCode == 39){//right arrow key up
+		//stop ff
+		console.info("right key up");
+		fastforwarding = false;
+		window.clearInterval(ffaction);
+		$("#jquery_jplayer_1").jPlayer("pause");
+    }
+ });
+ 
+ function getPlayerProgress(){
+	 console.info("Test method from getPlayerProgress()");
+	 console.info( $('.jp-play-bar').width() );
+	 console.info( $('.jp-seek-bar').width() );
+	 var toReturn = ($('.jp-play-bar').width() / $('.jp-seek-bar').width()) * 100;
+	 console.info(toReturn);
+	 return( $('.jp-play-bar').width() / $('.jp-seek-bar').width() * 100);
+	 //width() sets or returns width of selected element; not including padding, border, margin
+ }
+	
+ function rewind(){
+	 var progress = getPlayerProgress();
+	 var futureprogress = progress - 10;
+	 if(futureprogress<=10){
+		 rewinding = false;
+		 window.clearInterval(rwaction);
+		 $("#jquery_jplayer_1").jPlayer("pause", 0);
+	 }else{
+		 $("#jquery_jplayer_1").jPlayer("playHead", futureprogress);
+	 }
+ }
+ 
+ function fastforward(){
+	 var progress = getPlayerProgress();
+	 var futureprogress = progress + 10;
+	 if (futureprogress >= 100){
+		 fastforwarding=false;
+		 window.clearIntervale(ffaction);
+		 $("#jquery_jplayer_1").jPlayer("pause", 0);
+	 }else{
+		 $("#jquery_jplayer_1").jPlayer("playHead", futureprogress);
+	 }
+ }
+ 
+});
+</script>
+
+<title>MP3 Player</title>
+</head>
+
+<body>
+<h2>Hello World! This is the Tuckish Productions Music Application</h2>
+
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+	<div id="jp_container_1" class="jp-audio">
+		<div class="jp-type-single">
+			<div class="jp_gui jp-interface">
+				<ul class="jp-controls">
+						<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                        <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                        <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                        <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                        <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                        <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+				</ul>
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div><!-- progress -->
+				<div class="jp-volume-bar">
+          			<div class="jp-volume-bar-value"></div>
+        		</div>
+        		<div class="jp-time-holder">
+          			<div class="jp-current-time"></div>
+        			<div class="jp-duration"></div>
+          			<ul class="jp-toggles">
+            			<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+            			<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+          			</ul>
+        		</div><!-- time-holder -->
+            </div><!-- jp_gui jp-interface -->
+            <div class="jp-title">
+		        <ul>
+		          <li>Enter Song Name Here</li>
+		        </ul>
+     		 </div>
+     		 <div class="jp-no-solution">
+        		<span>Update Required</span>
+        		To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+     		 </div>
+	    </div>
+	</div>
+ 
+</body>
+</html>
