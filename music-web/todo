@@ -1,0 +1,14 @@
+Oct 14 16:37
+
+Need to re-add datasources
+
+Need to un-hardcode the context paths
+
+Need to properly inject the MP3Tag libraries (currently in classpath via src/main/resources/3rdPartyLibs) 
+   into Translator or find a good replacement for these libs in Maven....
+   
+Need to add sql scripts to create following tables: genre, artist, song, album
+
+Need to add partial content response (error 206) to the streaming controller 
+   so all playback functions are available in jPlayer via Chrome browser
+  
