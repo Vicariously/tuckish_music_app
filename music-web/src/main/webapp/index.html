@@ -31,14 +31,12 @@ $(document).ready(function(){
  $(document).delegate('*', 'keydown',  function (e){
 	 //Rewind
 	if(e.keyCode == 37 && (!rewinding)){ //left arrow key pressed
-		console.info("left key pressed");
 		rewinding = true;
 		$("#jquery_jplayer_1").jPlayer("pause");
 		rewind();
 		rwaction = window.setInterval(function(){rewind()}, 500);
 	}
 	else if(e.keyCode == 39 && (!fastforwarding)){//right arrow key pressed
-		console.info("right key pressed");
 		fastforwarding = true;
 		$("#jquery_jplayer_1").jPlayer("pause");
 		fastforward();
@@ -49,7 +47,6 @@ $(document).ready(function(){
  $(document).delegate('*', 'keyup',  function (e){
 	 //stop Rewind
 	if(e.keyCode == 37){ //left arrow key up
-		console.info("left key up");
 		rewinding = false;
 		window.clearInterval(rwaction);
 		$("#jquery_jplayer_1").jPlayer("pause");
@@ -57,7 +54,6 @@ $(document).ready(function(){
 	}
 	else if(e.keyCode == 39){//right arrow key up
 		//stop ff
-		console.info("right key up");
 		fastforwarding = false;
 		window.clearInterval(ffaction);
 		$("#jquery_jplayer_1").jPlayer("pause");
@@ -65,12 +61,8 @@ $(document).ready(function(){
  });
  
  function getPlayerProgress(){
-	 console.info("Test method from getPlayerProgress()");
-	 console.info( $('.jp-play-bar').width() );
-	 console.info( $('.jp-seek-bar').width() );
 	 var toReturn = ($('.jp-play-bar').width() / $('.jp-seek-bar').width()) * 100;
-	 console.info(toReturn);
-	 return( $('.jp-play-bar').width() / $('.jp-seek-bar').width() * 100);
+	 return( toReturn);
 	 //width() sets or returns width of selected element; not including padding, border, margin
  }
 	
