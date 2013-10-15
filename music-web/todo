@@ -12,3 +12,5 @@ Need to add sql scripts to create following tables: genre, artist, song, album
 Need to add partial content response (error 206) to the streaming controller 
    so all playback functions are available in jPlayer via Chrome browser
   
+In index.html (for now) need to capture the keypress event for ENTER key, if the playback has
+   been paused directly after a ff or rw action has ended, in order to continue playback.
