@@ -11,23 +11,13 @@ import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mysql.jdbc.log.Log;
 
 @Controller
+@RequestMapping("/stream")
 public class EntryController {
 
-	@RequestMapping("/hello")
-	public ModelAndView redirectToHome(){
-		ModelAndView m = new ModelAndView("hello");
-		
-		//add string into a model named "model", which can be grabbed in jsp via ${model}
-		m.addObject("model", "hey this is meghan and i miss tucker."); 
-		
-		return m;
-	}
-	
 	@RequestMapping("/play/*.mp3")
 	public void playSong( HttpServletResponse response) throws IOException{
 			response.setContentType("audio/mpeg");

@@ -24,7 +24,7 @@ version="3.0">
   
   <servlet-mapping>
   	<servlet-name>tuckish_music</servlet-name>
-  	<url-pattern>/stream/*</url-pattern>
+  	<url-pattern>/app/*</url-pattern>
   </servlet-mapping>
  
 </web-app>
