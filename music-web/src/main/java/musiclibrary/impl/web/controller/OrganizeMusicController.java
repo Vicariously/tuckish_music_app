@@ -24,30 +24,21 @@ public class OrganizeMusicController{
 		return m;
 	}
 	
-	@RequestMapping("/testbrowse")
-	public ModelAndView browseFileSystem(){
-		ModelAndView m = new ModelAndView("list");
-		String path = "/home/meghan/Desktop/Documents/TestMusicDirectory"; //to be set in properties file so can be tweaked without recompile
-		File file = new File(path);
-		String name = "";
-		
-		if(file.exists()){
-			name = file.getName();
-			
-			if(file.isDirectory()){
-				String[] directory = file.list();
-				m.addObject("directory", directory);
-			}
-		}
-		return m;
-	}
 	
 	@RequestMapping("/select")
-	public ModelAndView selectItem( @RequestParam(value="item", required=false) String item, HttpServletRequest request, HttpServletResponse response ){
+	public ModelAndView selectItem( @RequestParam(value="artist", required=false) String artist, @RequestParam(value="album", required=false) String album, HttpServletRequest request, HttpServletResponse response ){
 		ModelAndView m = new ModelAndView("list");
-		m.addObject("item", item);
+		String path = "/home/meghan/Desktop/Documents/TestMusicDirectory/";
 		
-		String path = "/home/meghan/Desktop/Documents/TestMusicDirectory/"+item;
+		if(artist!=null){
+			m.addObject("artist", artist);
+			path=path+artist;
+		}
+		if(album!=null){
+			m.addObject("album", album);
+			path=path+"/"+album;
+		}
+		
 		m.addObject("path", path);
 		File file = new File(path);
 		String name = "";
@@ -58,6 +49,8 @@ public class OrganizeMusicController{
 			if(file.isDirectory()){
 				String[] directory = file.list();
 				m.addObject("directory", directory);
+			}else{
+				m.addObject("filename", name);
 			}
 		}
 		return m;
