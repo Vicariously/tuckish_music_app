@@ -1,3 +1,7 @@
+Deployment requires at least two JVM System Properties: 
+music.config=/path/to/music.properties
+music.web.config=/path/to/music.web.properties
+
 Application context will contain beans for the root webapp. This should include application-wide beans such as datasources, business objects etc.
 
 Servlet context will contain beans for the servlet app context. This should include controllers etc.

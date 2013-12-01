@@ -1,4 +1,4 @@
-package musiclibrary.impl.database.entity;
+package musiclibrary.impl.common.entity;
 
 public abstract class Song {
 

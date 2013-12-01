@@ -1,4 +1,4 @@
-package musiclibrary.impl.database.entity;
+package musiclibrary.impl.common.entity;
 
 import java.util.List;
 
