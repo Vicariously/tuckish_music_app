@@ -6,9 +6,6 @@
 
 	<context:property-placeholder location="file:${music.web.config}" />
 
-	<!-- Revisit in the future -->
-	<import resource="classpath:music-application.xml" />
-
 	<context:component-scan base-package="musiclibrary.impl.web" />
 	<!-- will scan @component, @controller, @repository, @service -->
 
