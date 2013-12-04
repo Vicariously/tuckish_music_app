@@ -11,5 +11,9 @@
 - There can be multiple servlet contexts to one application context. In the future if we expand this application they can all extend the same application context.
 - Beans in servlet.xml can reference beans in the application context, but not the other way around.
 
+## External Resources
+- [SiteMesh Templating] (http://wiki.sitemesh.org/display/sitemesh/Home)
+- [Spring Framework 3.x] (http://projects.spring.io/spring-framework)
+
 -Meghan
 
