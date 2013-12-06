@@ -5,23 +5,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tuckish Media Player</title>
+<title>Tuckish Media <sitemesh:write property='title'/></title>
 
-<link type="text/css" href="public/assets/bootstrap/css/bootstap.min.css" rel="stylesheet" />
-<link type="text/css" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
-<link type="text/css" href="public/assets/css/tuckish.css" rel="stylesheet" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" />
+<link rel="stylesheet" href="public/assets/css/tuckish.css" />
 
-<script type="text/javascript" src="public/assets/jQuery/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="public/assets/bootstap/js/bootstrap.min.js"></script>
+<sitemesh:write property='head'/>
 </head>
 <body>
+	<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
+	<script src="public/assets/js/tuckishplayer.js"></script>
+	
 	<c:import url="/WEB-INF/include/navbar.jsp"/>
 	
-	<decorator:body />
+	<sitemesh:write property='body'/>
 	
-	<c:import url="/WEB-INF/include/footer.jsp"/>
+	<div class="navbar navbar-fixed-bottom">
+		<c:import url="/WEB-INF/include/footer.jsp"/>
+	</div>
 </body>
 </html>

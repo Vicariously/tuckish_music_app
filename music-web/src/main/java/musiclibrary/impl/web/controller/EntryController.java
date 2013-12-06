@@ -1,6 +1,5 @@
 package musiclibrary.impl.web.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -8,23 +7,22 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/stream")
+@RequestMapping("/app/*")
 public class EntryController {
 
-	@RequestMapping("/play")
+	@RequestMapping(value = "/play", method = RequestMethod.GET)
 	public void playSong(@RequestParam(value = "artist", required = false) String artist, @RequestParam(value = "album", required = false) String album,
 			@RequestParam(value = "song", required = false) String song, HttpServletResponse response) throws IOException {
 
 		response.setContentType("audio/mpeg");
-		String path = "/home/meghan/Desktop/Documents/TestMusicDirectory/" + artist + "/" + album + "/" + song;
-		FileSystemResource resource = new FileSystemResource(path);
-		File mp3 = resource.getFile();
+		ClassPathResource resource = new ClassPathResource("mp3/jolene.mp3");
 
 		try {
 			ServletOutputStream os = response.getOutputStream();
