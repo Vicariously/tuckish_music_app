@@ -1,5 +1,5 @@
-//instance jplayer here
-//use ajax to get a new mp3 and set the new mp3 in this jplayers instance
+// instance jplayer here
+// use ajax to get a new mp3 and set the new mp3 in this jplayers instance
 
 $(document).ready(function() {
 	// Select2 form fields
@@ -25,21 +25,36 @@ $(document).ready(function() {
 	        }
 		}
 	});
+	$("#plSel").on("change", function(e) {
+		if (e.added !== undefined) {
+			alert("Changing playlist to: " + e.added.text);
+		}
+	});
 	
-	// jPlayer
+	// jPlayer with playlist
 	var ffaction;
 	var rwaction;
 	var rewinding = false;
 	var fastforwarding = false;
 	var paused = false;
 	
-	$("#jquery_jplayer_1").jPlayer({
-		ready: function() {
-			$(this).jPlayer("setMedia",{mp3: "app/play"}); //jPlayer.setMedia
+    var myPlaylist = new jPlayerPlaylist({
+        jPlayer: "#jquery_jplayer_1",
+        cssSelectorAncestor: "#jp_container_1"
+	},[{
+		 title:"Jolene",
+		 artist:"The White Stripes",
+		 mp3:"app/play"
+	}],{
+		playlistOptions: {
+			enableRemoveControls: true
 		},
-		swfPath: "public/assets/jPlayer/jQuery.jPlayer.2.4.0",
-		supplied: "mp3"
-	});
+		swfPath: "public/assets/jPlayer",
+		supplied: "mp3",
+		wmode: "window",
+		smoothPlayBar: true,
+		keyEnabled: true
+    });
 	
 	$(document).delegate('*', 'keydown',  function (e) {
 		//Rewind
@@ -72,7 +87,7 @@ $(document).ready(function() {
 	
 	function getPlayerProgress() {
 		var toReturn = ($('.jp-play-bar').width() / $('.jp-seek-bar').width()) * 100;
-		return(toReturn);
+		return (toReturn);
 		//width() sets or returns width of selected element; not including padding, border, margin
 	}
 	

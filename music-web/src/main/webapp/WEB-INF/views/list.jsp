@@ -4,11 +4,12 @@
 <html>
 <head>
 <%@ page isELIgnored="false" %>
-<link type="text/css" href="http://localhost:8080/music/public/assets/css/tuckish.css" rel="stylesheet" />
-<link type="text/css" href="http://localhost:8080/music/public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
-<script type="text/javascript" src="http://localhost:8080/music/public/assets/jQuery/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/music/public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/music/public/assets/js/tuckishplayer.js"></script>
+<link type="text/css" href="public/assets/css/tuckish.css" rel="stylesheet" />
+<link type="text/css" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+
+<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="public/assets/jPlayer/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="public/assets/js/tuckishplayer.js"></script>
 </head>
 <body>
 <h2>Tuckish Music Application</h2>

@@ -19,7 +19,7 @@
 				<artifactId>yuicompressor-maven-plugin</artifactId>
 				<configuration>
 					<sourceJsFolder>${basedir}/src/main/webapp/public/assets/js</sourceJsFolder>
-					<failOnWarning>true</failOnWarning>
+					<failOnWarning>false</failOnWarning>
 					<excludes>
 						<exclude>**/jquery*.js</exclude>
 						<exclude>**/bootstrap*.js</exclude>
