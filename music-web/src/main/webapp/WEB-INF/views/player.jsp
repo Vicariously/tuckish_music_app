@@ -3,9 +3,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link type="text/css" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+<link type="text/css" href="public/assets/select2/select2.css" rel="stylesheet" />
+<link type="text/css" href="public/assets/css/tuckishplayer.css" rel="stylesheet" />
+
+<script type="text/javascript" src="public/assets/select2/select2.min.js"></script>
+<script type="text/javascript" src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="public/assets/js/tuckishplayer.js"></script>
 <title>Player</title>
 </head>
 <body>
+	<p>
+		<input id="plSel" type="hidden" class="populate placeholder select2-offscreen" />
+	</p>
+	
 	<div id="jquery_jplayer_1" class="jp-jplayer"></div>
 	<div id="jp_container_1" class="jp-audio">
 		<div class="jp-type-single">

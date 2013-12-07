@@ -2,6 +2,31 @@
 //use ajax to get a new mp3 and set the new mp3 in this jplayers instance
 
 $(document).ready(function() {
+	// Select2 form fields
+	$("#plSel").select2({
+		width: "300",
+		placeholder: "Select a playlist",
+		allowClear: true,
+		ajax: {
+			url: "app/playlist/all",
+			dataType: "json",
+			results: function (data) {
+				var results = [];
+				$.each(data, function(index, item) {
+					results.push({
+						id: item.id,
+						text: item.name
+					});
+				});
+				
+				return {
+					results: results
+				};
+	        }
+		}
+	});
+	
+	// jPlayer
 	var ffaction;
 	var rwaction;
 	var rewinding = false;
@@ -9,9 +34,8 @@ $(document).ready(function() {
 	var paused = false;
 	
 	$("#jquery_jplayer_1").jPlayer({
-		
-		ready: function(){
-			$(this).jPlayer("setMedia",{mp3: "app/stream/play/jolene.mp3"});//jPlayer.setMedia
+		ready: function() {
+			$(this).jPlayer("setMedia",{mp3: "app/play"}); //jPlayer.setMedia
 		},
 		swfPath: "public/assets/jPlayer/jQuery.jPlayer.2.4.0",
 		supplied: "mp3"

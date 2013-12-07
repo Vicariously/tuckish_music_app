@@ -18,6 +18,9 @@
 
 	<mvc:annotation-driven />
 	<mvc:resources location="/public/" mapping="/public/**" />
-	<mvc:view-controller path="/" view-name="hello" />
+	<mvc:view-controller path="/" view-name="home" />
 	<mvc:view-controller path="/player" view-name="player" />
+	<mvc:view-controller path="/playlistmgmt" view-name="playlistmgmt" />
+	<mvc:view-controller path="/organize" view-name="organize" />
+	<mvc:view-controller path="/about" view-name="about" />
 </beans>

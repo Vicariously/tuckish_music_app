@@ -23,6 +23,7 @@
 					<excludes>
 						<exclude>**/jquery*.js</exclude>
 						<exclude>**/bootstrap*.js</exclude>
+						<exclude>**/select2*.js</exclude>
 						<exclude>**/jplayer*.js</exclude>
 						<exclude>**/popcorn*.js</exclude>
 					</excludes>
@@ -103,6 +104,10 @@
 		<dependency>
 			<groupId>org.sitemesh</groupId>
 			<artifactId>sitemesh</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>

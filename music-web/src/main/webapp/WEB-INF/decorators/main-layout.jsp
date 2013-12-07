@@ -9,14 +9,11 @@
 <title>Tuckish Media <sitemesh:write property='title'/></title>
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-<link type="text/css" href="public/assets/jPlayerSkins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
 <link type="text/css" href="public/assets/css/tuckish.css" rel="stylesheet" />
 
 <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
-
-<script type="text/javascript" src="public/assets/js/tuckishplayer.js"></script>
+<script type="text/javascript" src="public/assets/js/tuckish.js"></script>
 
 <sitemesh:write property='head'/>
 </head>

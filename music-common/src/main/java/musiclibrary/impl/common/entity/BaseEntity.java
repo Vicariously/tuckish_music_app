@@ -1,13 +1,14 @@
 package musiclibrary.impl.common.entity;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
 
-@MappedSuperclass
-public class BaseEntity {
+import javax.xml.bind.annotation.XmlRootElement;
 
-	@Column(name = "ID")
-	private long id;
+@XmlRootElement
+public class BaseEntity implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	protected long id;
 
 	public long getId() {
 		return id;
