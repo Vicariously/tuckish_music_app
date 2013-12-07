@@ -6,6 +6,10 @@
 <title>Home</title>
 </head>
 <body>
-	<h3>Hello World! This is the Tuckish Productions Music Application</h3>
+	<div class="jumbotron">
+		<h1>Tuckish Productions Media Player</h1>
+		<p>This is a web application for managing and listening to you favorite music.</p>
+		<p><a class="btn btn-primary btn-lg" role="button" href="<c:url value="/player" />">Lets Play!</a></p>
+	</div>
 </body>
 </html>

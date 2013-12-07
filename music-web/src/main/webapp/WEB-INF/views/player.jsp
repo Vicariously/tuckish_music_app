@@ -10,6 +10,7 @@
 <script type="text/javascript" src="public/assets/select2/select2.min.js"></script>
 <script type="text/javascript" src="public/assets/jPlayer/jQuery.jPlayer.2.4.0/jquery.jplayer.min.js"></script>
 <script type="text/javascript" src="public/assets/js/tuckishplayer.js"></script>
+
 <title>Player</title>
 </head>
 <body>
