@@ -4,5 +4,6 @@
 	version="2.0">
 	<persistence-unit name="musicApp">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>musiclibrary.impl.common.model.Song</class>
 	</persistence-unit>
 </persistence>

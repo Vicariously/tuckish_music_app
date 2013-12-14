@@ -1,9 +1,9 @@
-package musiclibrary.impl.common.entity;
+package musiclibrary.impl.common.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class NamedEntity extends BaseEntity {
+public class NamedModel extends BaseModel {
 
 	private static final long serialVersionUID = 1L;
 	protected String name;

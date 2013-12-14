@@ -7,8 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import musiclibrary.impl.common.entity.NamedEntity;
-import musiclibrary.impl.common.entity.Playlist;
+import musiclibrary.impl.common.model.NamedModel;
+import musiclibrary.impl.common.model.Playlist;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -59,7 +59,7 @@ public class PlaylistController {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
-	public Playlist createPlaylist(@ModelAttribute(value = "name") NamedEntity playlist, HttpServletRequest request, HttpServletResponse response)
+	public Playlist createPlaylist(@ModelAttribute(value = "name") NamedModel playlist, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
 		LOG.trace("Begin createPlaylist");
 
