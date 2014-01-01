@@ -1,26 +1,29 @@
 package musiclibrary.impl.common.model;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="song")
 public class Song extends BaseModel{
 
-	private String fileName;
+	private String filepath;
 	private String title;
 	private Album album;
 	private Artist artist;
-	private int type;
+	private String type;
 	private String comment;
 	private int track;
 	
-	public String getFileName() {
-		return fileName;
+	public String getFilepath() {
+		return filepath;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 
 	public String getTitle() {
@@ -31,6 +34,8 @@ public class Song extends BaseModel{
 		this.title = title;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="album_id")
 	public Album getAlbum() {
 		return album;
 	}
@@ -39,6 +44,8 @@ public class Song extends BaseModel{
 		this.album = album;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="artist_id")
 	public Artist getArtist() {
 		return artist;
 	}
@@ -47,11 +54,11 @@ public class Song extends BaseModel{
 		this.artist = artist;
 	}
 
-	public int getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
