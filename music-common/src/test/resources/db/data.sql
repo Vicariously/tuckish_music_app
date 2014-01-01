@@ -1,1 +1,1 @@
-INSERT INTO MUSIC (SONG) VALUES ('Simple Song Title');
+insert into song(title, track, comment, type, filepath )values('Ends', 2, 'this is a new comment', 'mp3', '/home/meghan/Documents/TestMusicDirectory/Everlast/Whitey Ford Sings the Blues');

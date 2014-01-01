@@ -50,4 +50,9 @@ public class SongDao extends BaseDao{
 		
 	}
 
+	@Override
+	public SessionFactory getSessionFactory() {
+		return this.sessionFactory;
+	}
+
 }
