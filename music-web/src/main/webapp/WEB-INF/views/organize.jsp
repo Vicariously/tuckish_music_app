@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="public/assets/css/organize.css">
 </head>
 <body>
 	<script type="text/javascript">
@@ -46,9 +47,11 @@
 	}
 	
 	function populateTable(url, directory, artist, album){
-		$(".table").remove();
-		$("#music_table").append('<table class="table table-bordered">');
+// 		$(".table").remove();
+		$("#music_table").empty();
+		$("#music_table").append('<table class="table table-striped table-condensed table-nonfluid">');
 		var requestParam = null;
+		var editable = "";
 		
 		if(typeof artist === "undefined"){
 			var header ="<thead><tr><th>Artists</th></tr></thead>";
@@ -64,8 +67,11 @@
 		$(".table").append(header);
 		
 		$.each(directory, function(index, elem){
-			var row2 = "<tr><td><a href=\'javascript:loadMusicDirectoryListing(\""+url+requestParam+"="+elem+"\")'>"+elem+"</a></td></tr>";
-			$(".table").append(row2);
+			var item = "<td><a href=\'javascript:loadMusicDirectoryListing(\""+url+requestParam+"="+elem+"\")'>"+elem+"</a></td>";
+			if(requestParam!=null){
+				editable = "<td><a href=\'javascript:organizeIt(\""+elem+"\",\""+requestParam.substr(1)+"\")'>edit</a></td>";
+			}
+			$(".table").append("<tr>"+item+editable+"</tr>");
 		});
 		
 		$("#music_table").append('</table>');
@@ -87,6 +93,25 @@
 			}
 		}
 	}
+	
+	function organizeIt(directory, type){
+		console.info(directory);
+		console.info(type);
+		
+		var url = _musicContext+"/app/list/organize?item="+directory+"&type="+type;
+		var jqXHR = $.getJSON(url, function(result){
+			//dosomething
+		}).done(function() {
+			console.info("organize call is done");
+			populateStash();
+		});
+			
+	}
+	
+	function populateStash(){
+		$("#suggested_changes_area").empty();
+		$("#suggested_changes_area").append("<p>This is where the user will be able to view suggested changes and edit or okay them</p>");
+	}
 	</script>
 	
 	
@@ -95,5 +120,6 @@
 	<div id="nav_controls"></div>
 	<br><br>
 	<div id="music_table"></div>
+	<div id="suggested_changes_area"></div>
 </body>
 </html>

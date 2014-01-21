@@ -38,6 +38,8 @@
 
 	<context:component-scan base-package="musiclibrary.impl.common.dao,
 										musiclibrary.impl.common.model,
+										musiclibrary.impl.common.organizor,
+										musiclibrary.impl.common.organizor.strategy,
 										musiclibrary.impl.common.service" />
 	
 	
