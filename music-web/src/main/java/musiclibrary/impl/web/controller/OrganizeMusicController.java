@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import musiclibrary.impl.common.organizor.Stash;
 import musiclibrary.impl.common.service.OrganizeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,11 +60,8 @@ public class OrganizeMusicController {
 	}
 	
 	@RequestMapping(value = "/organize", method = RequestMethod.GET)
-	public @ResponseBody Map organizeItems(@RequestParam(value="item", required=true) String item, @RequestParam(value = "type", required=true) String type){
-		Map items = new HashMap<String, Object>();
-		
-		
-		
-		return items;
+	public @ResponseBody Stash organizeItems(@RequestParam(value="item", required=true) String item, @RequestParam(value = "type", required=true) String type){
+		Stash stash = this.service.organize(item,type);
+		return stash;
 	}
 }
