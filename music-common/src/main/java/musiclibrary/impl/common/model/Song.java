@@ -4,20 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
-@Table(name="song")
-public class Song extends BaseModel{
+@Table(name = "song")
+public class Song extends TitledModel {
 
 	private String filepath;
-	private String title;
 	private Album album;
 	private Artist artist;
 	private String type;
 	private String comment;
 	private int track;
-	
+
 	public String getFilepath() {
 		return filepath;
 	}
@@ -26,16 +24,8 @@ public class Song extends BaseModel{
 		this.filepath = filepath;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	@ManyToOne
-	@JoinColumn(name="album_id")
+	@JoinColumn(name = "album_id")
 	public Album getAlbum() {
 		return album;
 	}
@@ -45,7 +35,7 @@ public class Song extends BaseModel{
 	}
 
 	@ManyToOne
-	@JoinColumn(name="artist_id")
+	@JoinColumn(name = "artist_id")
 	public Artist getArtist() {
 		return artist;
 	}

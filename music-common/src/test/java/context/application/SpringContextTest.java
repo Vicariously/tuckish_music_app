@@ -1,13 +1,14 @@
 package context.application;
 
 import org.apache.log4j.Logger;
-import org.junit.Test;
 import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.Assert;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@Ignore
 @ContextConfiguration(value="classpath:music-application.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class SpringContextTest {
