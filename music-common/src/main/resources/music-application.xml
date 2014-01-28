@@ -17,40 +17,29 @@
 		<property name="username" value="${tuckish.music.database.username}" />
 		<property name="password" value="${tuckish.music.database.password}" />
 	</bean>
-	
-	 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-		<property name="packagesToScan" value="musiclibrary.impl.common.model"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">${tuckish.music.database.hibernate.dialect}</prop>
-                <prop key="hibernate.show_sql">true</prop>
-            </props>
-        </property>
-    </bean>
-	
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="musiclibrary.impl.common.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${tuckish.music.database.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<context:annotation-config />
 	<tx:annotation-driven />
 
-	<context:component-scan base-package="musiclibrary.impl.common.dao,
-										musiclibrary.impl.common.model,
-										musiclibrary.impl.common.organizor,
-										musiclibrary.impl.common.organizor.strategy,
-										musiclibrary.impl.common.service" />
-	
-	
-	<!-- entityManagerFactory bean -->
-<!-- 	<bean id="entityManagerFactory" -->
-<!-- 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> -->
-<!-- 		<property name="dataSource" ref="dataSource" /> -->
-<!-- 		<property name="persistenceUnitName" value="musicApp" /> -->
-<!-- 	</bean> -->
-
-<!-- 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> -->
-<!-- 		<property name="entityManagerFactory" ref="entityManagerFactory" /> -->
-<!-- 	</bean> -->
+	<context:component-scan
+		base-package="musiclibrary.impl.common.dao, 
+						musiclibrary.impl.common.model, 
+						musiclibrary.impl.common.organizor, 
+						musiclibrary.impl.common.organizor.strategy, 
+						musiclibrary.impl.common.service" />
 </beans>

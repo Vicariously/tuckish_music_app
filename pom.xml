@@ -49,6 +49,7 @@
 				<version>2.5</version>
 				<configuration>
 					<systemPropertyVariables>
+						<test.sql>${project.parent.basedir}/sql</test.sql>
 						<music.config>${project.parent.basedir}/music.properties</music.config>
 						<music.web.config>${project.parent.basedir}/music.web.properties</music.web.config>
 					</systemPropertyVariables>

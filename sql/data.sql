@@ -20,6 +20,6 @@ WHERE a.name = 'Everlast';
 INSERT INTO song (artist_id, album_id, title, track, comment, type, filepath)
 VALUES (
   (SELECT id FROM artist WHERE name = 'Everlast'),
-  (SELECT id FROM album WHERE name = 'Whitey Ford Sings the Blues'),
+  (SELECT id FROM album WHERE title = 'Whitey Ford Sings the Blues'),
   'Ends', 3, 'This song is 4:43 long', 'mp3', '/home/meghan/Documents/TestMusicDirectory/Everlast/Whitey Ford Sings the Blues'
 );
