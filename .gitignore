@@ -1,4 +1,4 @@
-#compiled source #
+# compiled source #
 ###################
 *.com
 *.class
@@ -7,13 +7,12 @@
 *.o
 *.so
 
-#eclipse environment stuff
+# eclipse environment stuff
 .settings/
 .project
 .classpath
 
-#maven-built directories
+# maven-built directories
 target/
 
-#personal properties files
-*.properties
+# personal properties files
